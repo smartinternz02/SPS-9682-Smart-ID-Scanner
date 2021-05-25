@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <title>Register - Smart ID Scanner</title>
+
+    <!--
+
+Breezed Template
+
+https://templatemo.com/tm-543-breezed
+
+-->
+    <!-- Additional CSS Files -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl-carousel.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.css') }}" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{{ url_for('.home') }}" class="logo">
+                            SMART ID SCANNER
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Login Form Start ****-->
+    <form action="/register" method="POST" class="login-form" autocomplete="off">
+        <h1>Register</h1>
+
+        <div class="info">
+            {{ msg }}
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="name" id="name" placeholder="  &#xf007;  Enter Your Full Name" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = '  &#xf007;  Enter Your Full Name'" required />
+        </div>
+
+        <div class="txtb">
+            <input type="email" name="email" id="email" placeholder="  &#xf0e0;  Enter Your Email" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = '  &#xf0e0;  Enter Your Email'" required />
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="dob" id="dob" placeholder="  &#xf133;  Enter Your Date Of Birth" onfocus="(this.type='date')"
+            onblur="(this.type='text')" required />
+                <span data-placeholder="  &#xf0e0;  Enter Your Date Of Birth"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="tel" name="phone" id="phone" placeholder="  &#xf095;  Enter Your Phone Number" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = '  &#xf095;  Enter Your Phone Number'" required />
+        </div>
+
+        <div class="txtb">
+            <input type="password" name="password" id="email" placeholder="  &#xf084;  Enter The Password"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = '  &#xf084;  Enter The Password'" required />
+        </div>
+        <div class="txtb">
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="  &#xf084;  Confirm Password"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = '  &#xf084;  Confirm Password'" required />
+        </div>
+        
+        <input type="submit" class="sub-btn" value="Register">
+        <p class="log">Already Have An Account? <a href="{{ url_for('login') }}">Login</a></p>
+    </form>
+    <!-- jQu
+    <script src="static/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="static/js/owl-carousel.js"></script>
+    <script src="static/js/scrollreveal.min.js"></script>
+    <script src="static/js/waypoints.min.js"></script>
+    <script src="static/js/jquery.counterup.min.js"></script>
+    <script src="static/js/imgfix.min.js"></script>
+    <script src="static/js/slick.js"></script>
+    <script src="static/js/lightbox.js"></script>
+    <script src="static/js/isotope.js"></script>
+
+    <!-- Global Init -->
+    <script src="static/js/custom.js"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <title>Delete Account - Smart ID Scanner</title>
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/delete_account.css') }}" />
+
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/owl-carousel.css') }}" /> -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.css') }}" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{{ url_for('.home') }}" class="logo">
+                            SMART ID SCANNER
+                        </a>
+
+                        <div class="logout">
+                            <a href="/logout" class="logout-button">Log Out</a>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% if not confirm %}
+    <div class="login-form">
+        <h4>Are you sure? You Want to delete your account?</h4>
+        <div class="txtb">
+            <input type="text" id="txtPassportNumber" onkeyup="EnableDisable(this)" placeholder="Type CONFIRM (In CAPS)"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type CONFIRM (In CAPS)'" required />
+        </div>
+        <!-- <div class="txtb"> -->
+        <a href="{{ url_for('confirm_delete') }}"><input id="btnSubmit" class="sub-btn" type="button" value="Proceed"
+                disabled="disabled" /></a>
+        <!-- </div> -->
+    </div>
+
+    <script type="text/javascript">
+        function EnableDisable(txtPassportNumber) {
+            //Reference the Button.
+            var btnSubmit = document.getElementById("btnSubmit");
+
+            //Verify the TextBox value.
+            if (txtPassportNumber.value.trim() == "CONFIRM") {
+                //Enable the TextBox when TextBox has value.
+                btnSubmit.disabled = false;
+                btnSubmit.style.border = "2px solid #34b7cf";
+                btnSubmit.style.color = "#34b7cf";
+                btnSubmit.onmouseover = function () { mouseOver() };
+                btnSubmit.onmouseout = function () { mouseOut() };
+                btnSubmit.style.cursor = "pointer";
+
+
+            } else {
+                //Disable the TextBox when TextBox is empty.
+                btnSubmit.disabled = true;
+                btnSubmit.style.cursor = "no-drop";
+                btnSubmit.style.border = "2px solid #adadad";
+                btnSubmit.style.color = "#adadad";
+                // btnSubmit.style.border = "2px solid #adadad";
+            }
+            function mouseOver() {
+                btnSubmit.style.color = "#ffffff";
+                btnSubmit.style.backgroundColor = "#34b7cf";
+            }
+
+            function mouseOut() {
+                btnSubmit.style.color = "#34b7cf";
+                btnSubmit.style.backgroundColor = "#ffffff";
+            }
+        };
+    </script>
+    {% endif %}
+
+
+    {% if confirm %}
+    <form action="/confirm_delete" id="upload-file" method="POST" enctype="multipart/form-data" class="login-form-2">
+        <div class="err-msg">
+            {{ msg }}
+        </div>
+        <h4>Enter the Verification Code sent to your Registered Email id</h4>
+        <div class="txtb">
+            <input type="text" name="code" id="txtPassportNumber" onkeyup="EnableDisable(this)" placeholder="  Verification Code"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = '  Verification Code'" required />
+        </div>
+        
+            <input id="btnSubmit" class="sub-btn" type="submit" value="Delete Account" disabled="disabled" />
+        
+    </form>
+
+    <script type="text/javascript">
+        function EnableDisable(txtPassportNumber) {
+            //Reference the Button.
+            var btnSubmit = document.getElementById("btnSubmit");
+
+            //Verify the TextBox value.
+            if (txtPassportNumber.value.trim() != "") {
+                //Enable the TextBox when TextBox has value.
+                btnSubmit.disabled = false;
+                btnSubmit.style.border = "2px solid #34b7cf";
+                btnSubmit.style.color = "#34b7cf";
+                btnSubmit.onmouseover = function () { mouseOver() };
+                btnSubmit.onmouseout = function () { mouseOut() };
+                btnSubmit.style.cursor = "pointer";
+
+            } else {
+                //Disable the TextBox when TextBox is empty.
+                btnSubmit.disabled = true;
+                btnSubmit.style.cursor = "no-drop";
+                btnSubmit.style.border = "2px solid #adadad";
+                btnSubmit.style.color = "#adadad";
+            }
+            function mouseOver() {
+                btnSubmit.style.color = "#ffffff";
+                btnSubmit.style.backgroundColor = "#34b7cf";
+            }
+
+            function mouseOut() {
+                btnSubmit.style.color = "#34b7cf";
+                btnSubmit.style.backgroundColor = "#ffffff";
+            }
+        };
+    </script>
+    {% endif %}
+
+
+
+    <!-- Bootstrap -->
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="static/js/owl-carousel.js"></script>
+    <script src="static/js/scrollreveal.min.js"></script>
+    <script src="static/js/waypoints.min.js"></script>
+    <script src="static/js/jquery.counterup.min.js"></script>
+    <script src="static/js/imgfix.min.js"></script>
+    <script src="static/js/slick.js"></script>
+    <script src="static/js/lightbox.js"></script>
+    <script src="static/js/isotope.js"></script>
+
+    <!-- Global Init -->
+    <script src="static/js/custom.js"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>

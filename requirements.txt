@@ -1,0 +1,8 @@
+flask
+flask_mysqldb
+Flask-Session
+requests
+Werkzeug
+pyyaml
+mysql-connector-python
+pytesseract

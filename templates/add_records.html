@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <title>Add Records - Smart ID Scanner</title>
+
+    
+    <!-- Additional CSS Files -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_records.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl-carousel.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.css') }}" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{{ url_for('.home') }}" class="logo">
+                            SMART ID SCANNER
+                        </a>
+
+                        <div class="logout">
+                            <a href="/logout" class="logout-button">Log Out</a>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {% if not img_src %}
+
+    <form action="/add_records" id="upload-file" method="POST" enctype="multipart/form-data" class="login-form">
+        <div class="err-msg">
+            {{ msg }}
+        </div>
+
+        <div class="txtb" id="txtb">
+            <input type="text" name="name" id="name" placeholder="  &#xf007;  Contact Name"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = '  &#xf007;  Contact Name'" required />
+        </div>
+
+        <div class="upload-instruction">
+            <h4>Instructions:</h4>
+            <ol>
+                <li>Make sure that the image you are uploading is clear</li>
+                <li>Accepted Image Formats : PNG, JPG, JPEG</li>
+            </ol>
+        </div>
+
+        <label for="imageUpload" class="upload-label">
+            Upload A Visiting Card
+        </label>
+
+        <input type="file" name="file" id="imageUpload" class="txtb" accept=".png, .jpg, .jpeg">
+
+        <div id="file-upload-filename" class="filename"></div>
+
+
+        <input type="submit" value="Extract Image" class="sub-btn">
+
+    </form>
+    {% endif %}
+
+    {% if img_src %}
+
+
+
+    <form action="/upload_data" id="upload-file" method="POST" enctype="multipart/form-data" class="login-form-2">
+        <div class="extract-img">
+            <img src="{{ img_src }}">
+        </div>
+
+        <div class="upload-instruction">
+            <h4>Note:</h4>
+            <ol>
+                <li>The Text Extracted From the image may not be 100% accurate. Make sure you verify the details before
+                    uploading to the Database</li>
+                <li>You are free to modify the details, if required</li>
+                <li>Leave the fields blank, which you think is not necessary. The website will automatically add NA to
+                    such fields</li>
+            </ol>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="name" id="name" value="{{ name }}" placeholder="  &#xf007;  Enter The Contact Name"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = '  &#xf007;  Enter The Contact Name'"
+                required />
+        </div>
+
+        <div class="txtb">
+            <input type="email" name="email" id="email" value="{{ email }}"
+                placeholder="  &#xf0e0;  Enter Contact Email Address" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = '  &#xf0e0;  Enter Contact Email Address'" />
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="phone" id="email" value="{{ phone }}"
+                placeholder="  &#xf095;  Enter The Phone Number" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = '  &#xf095;  Enter The Phone Number'" />
+        </div>
+
+        <div class="txtb">
+            <textarea name="address" id="email" placeholder="  &#xf041;  Enter The Address" onfocus="this.placeholder = ''" onblur="this.placeholder = '  &#xf041;  Enter The Address'" >{{ address }}</textarea>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="website" id="email" value="{{ website }}"
+                placeholder="  &#xf0c1;  Enter The Website" onfocus="this.placeholder = ''"
+                onblur="this.placeholder = '  &#xf0c1;  Enter The Website'" />
+        </div>
+
+
+
+            <input type="submit" value="Upload" class="sub-btn">
+
+    </form>
+
+
+
+
+    {% endif %}
+
+
+    <script type="text/javascript">
+        var input = document.getElementById('imageUpload');
+        var infoArea = document.getElementById('file-upload-filename');
+
+        input.addEventListener('change', showFileName);
+
+        function showFileName(event) {
+
+            // the change event gives us the input it occurred in 
+            var input = event.srcElement;
+
+            // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
+            var fileName = input.files[0].name;
+
+            // use fileName however fits your app best, i.e. add it into a div
+            infoArea.textContent = fileName;
+        }
+    </script>
+
+   
+
+
+
+    <!-- Bootstrap -->
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="static/js/owl-carousel.js"></script>
+    <script src="static/js/scrollreveal.min.js"></script>
+    <script src="static/js/waypoints.min.js"></script>
+    <script src="static/js/jquery.counterup.min.js"></script>
+    <script src="static/js/imgfix.min.js"></script>
+    <script src="static/js/slick.js"></script>
+    <script src="static/js/lightbox.js"></script>
+    <script src="static/js/isotope.js"></script>
+
+    <!-- Global Init -->
+    <script src="static/js/custom.js"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <title>Smart ID Scanner</title>
+
+    
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl-carousel.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.css') }}" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{{ url_for('.home') }}" class="logo">
+                            SMART ID SCANNER
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                            
+                            <li class="submenu">
+                                <a href="javascript:;">Menu</a>
+                                <ul>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#features">Features</a></li>
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a href="#contact-us">Contact Me</a></li>
+                            
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner header-text" id="top">
+        <div class="Modern-Slider">
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="static/images/slide-01.jpg" alt="">
+                    <div class="text-content">
+                        <h3>Welcome To Smart ID Scanner</h3>
+                        <h5>Upload Your Visiting Cards And Our Webapp Will Extract Contact Details From It And Save It
+                            For You!..</h5>
+                        <a href="{{ url_for('login') }}" class="main-stroked-button">Sign In</a>
+                        <a href="{{ url_for('register') }}" class="main-filled-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="static/images/slide-02.jpg" alt="">
+                    <div class="text-content">
+                        <h3>Safety & Security</h3>
+                        <h5>Your Data Is Safe With Us!.. No One Can Access It Except You</h5>
+                        <a href="{{ url_for('login') }}" class="main-stroked-button">Sign In</a>
+                        <a href="{{ url_for('register') }}" class="main-filled-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+            <!-- Item -->
+            <div class="item">
+                <div class="img-fill">
+                    <img src="static/images/slide-03.jpg" alt="">
+                    <div class="text-content">
+                        <h3>Ease Of Access</h3>
+                        <h5>Upload And Access Data, Anytime! Anywhere!!!</h5>
+                        <a href="{{ url_for('login') }}" class="main-stroked-button">Sign In</a>
+                        <a href="{{ url_for('register') }}" class="main-filled-button">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // Item -->
+        </div>
+    </div>
+    <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
+    <!-- ***** Main Banner Area End ***** -->
+
+    <!-- ***** About Area Starts ***** -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h6>About</h6>
+                            <h2>Extracting and storing data from images made easy</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="static/images/service-item-01.png" alt="">
+                                    <h4>1. Login</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="static/images/service-item-01.png" alt="">
+                                    <h4>2. Choose an Image</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="static/images/contact-info-03.png" alt="">
+                                    <h4>3. Verify</h4>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="service-item">
+                                    <img src="static/images/contact-info-03.png" alt="">
+                                    <h4>4. Upload</h4>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-12">
+                    <div class="right-text-content">
+                        <p>In our day to day life, we meet many people, talk to many strangers and somehow manage to get their contact, mostly in the form of their visiting cards. But if you observe clearly, these cards won't be available at the time of need. There should be a safe box in order to save these details, so that it can be used whenever needed.
+                            <br><br><strong>Smart ID Scanner</strong> project is a solution to this problem. This project is an approach to extract contact details of a person through an image, mostly from their Visiting Cards and save it to the database. You can access these details <strong>Anytime</strong>, from <strong>Anywhere</strong>!!!</strong>
+                            <br><br>All you need to do is, take the image of the visiting card or anything that contains contact details, and upload it to Smart ID Scanner Website. The website will automatically extract details from the image. You can also choose to make any changes,before uploading the extracted data to the Database.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** About Area Ends ***** -->
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="static/images/features-icon-1.png" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Poratble</h4>
+                            <p>All your data, along with the visiting card images are stored in the database, which can be accessed from anywhere and at any point of time.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="static/images/features-icon-1.png" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Simple UI</h4>
+                            <p>Our User-Interface is clean and simple. You don't need to worry about anything. All you need to do is Sign In, and start making use of it.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                    <div class="features-item">
+                        <div class="features-icon">
+                            <img src="static/images/features-icon-1.png" alt="">
+                        </div>
+                        <div class="features-content">
+                            <h4>Safety</h4>
+                            <p>We don't compromise with data. Your data is safe with us. Only you can have control on your data and no one else.</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Features Big Item End ***** -->
+
+    
+
+    <!-- ***** Contact Us Area Starts ***** -->
+    <section class="section" id="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="left-text-content">
+                        <div class="section-heading">
+                            <h6>Contact Me</h6>
+                            <h2>Feel free to contact me!</h2>
+                        </div>
+                        <ul class="contact-info">
+                            <li><img src="static/images/contact-info-01.png" alt=""><a href="tel:+919449053882">+91 9449053882</a></li>
+                            <li><img src="static/images/contact-info-02.png" alt=""><a href="mailto:dheerajpnaik@gmail.com">dheerajpnaik@gmail.com</a></li>
+                            <li><img src="static/images/github.png" alt=""><a href="https://github.com/DheerajPramodNaik" target="_blank">www.github.com/DheerajPramodNaik</a></li>
+                            <li><img src="static/images/contact-info-04.png" alt=""><a href="https://www.linkedin.com/in/dheerajpnaik/" target="_blank">www.linkedin.com/in/dheerajpnaik/</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Contact Us Area Ends ***** -->
+
+    <!-- ***** Footer Start ***** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xs-12">
+                    <div class="left-text-content">
+                        <p>Template Credits:<br>Copyright &copy; 2020 Breezed Co., Ltd.
+
+                            - Design: <a rel="nofollow noopener" href="https://templatemo.com">TemplateMo</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    
+
+    <!-- Bootstrap -->
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="static/js/owl-carousel.js"></script>
+    <script src="static/js/scrollreveal.min.js"></script>
+    <script src="static/js/waypoints.min.js"></script>
+    <script src="static/js/jquery.counterup.min.js"></script>
+    <script src="static/js/imgfix.min.js"></script>
+    <script src="static/js/slick.js"></script>
+    <script src="static/js/lightbox.js"></script>
+    <script src="static/js/isotope.js"></script>
+
+    <!-- Global Init -->
+    <script src="static/js/custom.js"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

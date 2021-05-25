@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <title>View Records - Smart ID Scanner</title>
+
+    <!--
+
+Breezed Template
+
+https://templatemo.com/tm-543-breezed
+
+-->
+    <!-- Additional CSS Files -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/display_records.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl-carousel.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.css') }}" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+
+
+
+
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{{ url_for('.home') }}" class="logo">
+                            SMART ID SCANNER
+                        </a>
+
+                        <div class="logout">
+                            <a href="/logout" class="logout-button">Log Out</a>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="accordion" id="accordionExample">
+                    {% for i in account %}
+                    <div class="card">
+                        <div class="card-header" id="heading{{ i[0] }}">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapse{{ i[0] }}" aria-expanded="true"
+                                    aria-controls="collapse{{ i[0] }}">
+                                    {{ i[1] }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapse{{ i[0] }}" class="collapse" aria-labelledby="heading{{ i[0] }}"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="info">
+                                    Date Of Upload : {{ i[7] }} <br><br>
+                                </div>
+                                <div class="info">
+                                    Email : <a href="mailto:{{ i[4] }}" target="_blank">{{ i[4] }}</a> <br><br>
+                                </div>
+                                <div class="info">
+                                    Phone : <a href="tel:{{ i[2] }}">{{ i[2] }}</a> <br><br>
+                                </div>
+                                <div class="info">
+                                    Website : <a href="{{ i[3] }}" target="_blank">{{ i[3] }}</a> <br><br>
+                                </div>
+                                <div class="info">
+                                    Address : {{ i[5] }} <br><br>
+                                </div>
+
+                                <div class="extract-img">
+                                    <img src="/static/uploads/{{ i[0] }}.png" alt="image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-6">
+                <h2 class="no-records">Number Of Records Saved : {{ length }}</h2>
+        </div>
+
+    </div>
+
+
+    <!-- Bootstrap -->
+    <script src="static/js/popper.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="static/js/owl-carousel.js"></script>
+    <script src="static/js/scrollreveal.min.js"></script>
+    <script src="static/js/waypoints.min.js"></script>
+    <script src="static/js/jquery.counterup.min.js"></script>
+    <script src="static/js/imgfix.min.js"></script>
+    <script src="static/js/slick.js"></script>
+    <script src="static/js/lightbox.js"></script>
+    <script src="static/js/isotope.js"></script>
+
+    <!-- Global Init -->
+    <script src="static/js/custom.js"></script>
+
+    <script>
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
